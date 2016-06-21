@@ -63,8 +63,6 @@ public class InChiTest {
 
         messages.add("n = " + n + " , m = " + m+ ", time: " + (System.currentTimeMillis() - begin));
 
-        //System.out.println("n = " + n + " , m = " + m+ ", time: " + (System.currentTimeMillis() - begin));
-
         chem.getDict().setNull();
         chem.setNull();
     }

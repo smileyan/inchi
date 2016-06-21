@@ -63,37 +63,24 @@ public class InChi extends Handler {
         }
 
         for (String pattern : dict){
-            if (!enough(pattern)) {
-                int po = BoyerMoore.match(inChi.getStandard_inchi_key(), pattern);
-                if (po + pattern.length() < inChi.getStandard_inchi_key().length()) {
-                    if (mr.size() >= num) {
-                        mr.set(num - 1, new MatchResult(pattern, inChi));
-                    } else {
-                        mr.add(new MatchResult(pattern, inChi));
-                    }
-                    Collections.sort(mr, new MatchResultComparator());
-                }
+            if (mr.size() >= num) {
+                return 0;
+            }
+            if (isMatch(inChi.getStandard_inchi_key(), pattern)) {
+                mr.add(new MatchResult(pattern, inChi));
+                Collections.sort(mr, new MatchResultComparator());
             }
         }
         return 0;
     }
 
+    private boolean isMatch(String text, String pattern) {
+        int po = BoyerMoore.match(text, pattern);
+        return po + pattern.length() < text.length();
+    }
     public List<MatchResult> getMr() {
         return mr;
     }
-
-    private boolean enough(String pattern) {
-        if (num > mr.size()) {
-            return false;
-        } else {
-            if (pattern.length() >= mr.get(num - 1).getPattern().length()) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-    }
-
 
 }
 class MatchResultComparator implements Comparator<MatchResult> {

@@ -37,7 +37,9 @@ public class Dict extends Handler {
 
     @Override
     Object execute(String line) {
-        words.add(line);
+        if (null != line && line.length() > 0) {
+            words.add(line);
+        }
         return 0;
     }
 }
