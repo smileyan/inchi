@@ -1,0 +1,17 @@
+1. How to run the program.
+
+    ## mvn clean
+    ## mvn install
+    ## mvn package
+    ## jar -jar target/inchi-0.1.ja r
+
+2. Time complexity of the solution.
+
+    Let N is the number of inchi lines.
+    Let M is the number of dictory lines.
+    The time complexity is O(s*N*M)
+    The s is the time of pattern detection algorithm which is Boyer–Moore string search algorithm.
+
+
+3. How to run the test and how to interpret the results.
+
