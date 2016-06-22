@@ -57,20 +57,32 @@ public class InChi extends Handler {
 
     @Override
     Object execute(String line) {
+        int added = 0;
+        List<MatchResult> mr_temp = new ArrayList<MatchResult>();
+
+
         InChiOb inChi = new InChiOb(line);
         if(!inChi.isValid()) {
             return -1;
         }
 
-        for (String pattern : dict){
-            if (mr.size() >= num) {
+        for (String pattern : dict) {
+            if (added >= num) {
                 return 0;
             }
+
+            if (mr.size() > 0 && (pattern.length() < mr.get(mr.size() - 1).getPattern().length())) {
+                return 0;
+            }
+
             if (isMatch(inChi.getStandard_inchi_key(), pattern)) {
-                mr.add(new MatchResult(pattern, inChi));
-                Collections.sort(mr, new MatchResultComparator());
+                mr_temp.add(new MatchResult(pattern, inChi));
+                added++;
+                //Collections.sort(mr_temp, new MatchResultComparator());
             }
         }
+        mr.addAll(mr_temp);
+        Collections.sort(mr, new MatchResultComparator());
         return 0;
     }
 

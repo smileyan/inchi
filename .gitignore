@@ -2,11 +2,14 @@
 *.log
 
 # sbt specific
+inchi.iml
+inchi.iws
 .cache
 .history
 .lib/
 .idea/
 dist/*
+input/*
 target/
 lib_managed/
 src_managed/

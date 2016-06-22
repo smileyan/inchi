@@ -55,6 +55,7 @@ public class InChiTest {
     public void setUp() {
         messages = new ArrayList<String>();
     }
+
     public void test(int n, int m) {
         long begin = System.currentTimeMillis();
         InChi chem = InChi.getInstance("test/in_" + n + ".txt", 10);
@@ -62,7 +63,7 @@ public class InChiTest {
         chem.match();
 
         messages.add("n = " + n + " , m = " + m+ ", time: " + (System.currentTimeMillis() - begin));
-
+        Utils.print(chem.getMr(), 10);
         chem.getDict().setNull();
         chem.setNull();
     }

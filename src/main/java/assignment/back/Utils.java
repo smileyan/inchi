@@ -18,8 +18,8 @@ public class Utils {
 
     private static final Log LOG = LogFactory.getLog(Utils.class);
 
-    public static final String DICT_FILE = "input/dictionary_1000.txt";
-    public static final String IN_CHI_FILE = "input/chembl_21_chemreps_1000.txt";
+    public static final String DICT_FILE = "input/dictionary.txt";
+    public static final String IN_CHI_FILE = "input/chembl_21_chemreps.txt";
 
     public static final String DICT_URL = "https://raw.githubusercontent.com/jonbcard/scrabble-bot/master/src/dictionary.txt";
     public static final String CHEMBL_URL = "http://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/latest/chembl_21_chemreps.txt.gz";
@@ -96,8 +96,15 @@ public class Utils {
         List<MatchResult> mr = chem.getMr();
         Collections.sort(mr, new MatchResultComparator());
 
+        print(mr, num);
+    }
+
+    public static void print(List<MatchResult> mr, int num) {
+        int i = 0;
         for (MatchResult result : mr) {
+            if (i == num) return;
             System.out.println(result.getInChiOb().getStandard_inchi_key() + ", " + result.getPattern() + ", " + result.getInChiOb().getChembl_id());
+            i ++;
         }
     }
 }
