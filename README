@@ -1,11 +1,13 @@
-1. How to run the program.
+## 1. How to run the program.
 
     ## mvn clean
     ## mvn install
     ## mvn package
     ## jar -jar target/inchi-0.1.jar
+    
+    The urls are set in Utils.java. The program can download files automately. You can download the files and mv them to input dir if you want.
 
-2. Time complexity of the solution.
+## 2. Time complexity of the solution.
 
     This is a computing sensitive problem. The main problem is the TopN, and the sub problem is the pattern detection.
 
@@ -24,7 +26,7 @@
 
     The main method is the execute() in InChi.java.
 
-3. How to run the test and how to interpret the results.
+## 3. How to run the test and how to interpret the results.
 
     3.1 how to run the test:
 
@@ -53,7 +55,7 @@
 
      The cost obeys our analysis approximately.
 
-4. Programming process
+## 4. Programming process
 
      4.1 Downloading data
      4.2 Loading dict data.
