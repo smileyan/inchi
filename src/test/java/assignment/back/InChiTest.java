@@ -14,41 +14,41 @@ import java.util.List;
 public class InChiTest {
 
     @Test
-    public void test2000_1000(){
-        test(2000,1000);
+    public void test1000_1000(){
+        test(1000,1000);
     }
 
-    @Test
-    public void test4000_1000(){
-        test(4000,1000);
-    }
-    @Test
-    public void test6000_1000(){
-        test(6000, 1000);
-    }
-
-    @Test
-    public void test8000_1000(){
-        test(8000, 1000);
-    }
-    @Test
-    public void test1000_2000(){
-        test(1000, 2000);
-    }
-    @Test
-    public void test1000_4000(){
-        test(1000, 4000);
-    }
-
-    @Test
-    public void test1000_6000(){
-        test(1000, 6000);
-    }
-
-    @Test
-    public void test1000_8000(){
-        test(1000, 8000);
-    }
+//    @Test
+//    public void test4000_1000(){
+//        test(4000,1000);
+//    }
+//    @Test
+//    public void test6000_1000(){
+//        test(6000, 1000);
+//    }
+//
+//    @Test
+//    public void test8000_1000(){
+//        test(8000, 1000);
+//    }
+//    @Test
+//    public void test1000_2000(){
+//        test(1000, 2000);
+//    }
+//    @Test
+//    public void test1000_4000(){
+//        test(1000, 4000);
+//    }
+//
+//    @Test
+//    public void test1000_6000(){
+//        test(1000, 6000);
+//    }
+//
+//    @Test
+//    public void test1000_8000(){
+//        test(1000, 8000);
+//    }
 
     List<String> messages;
     @Before
