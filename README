@@ -7,7 +7,7 @@
 
 2. Time complexity of the solution.
 
-    This is computing sensitive problem. The main problem is the TopN, and the sub problem is the pattern detection.
+    This is a computing sensitive problem. The main problem is the TopN, and the sub problem is the pattern detection.
 
     Dict has 178690 words(0.2m). We can set the data in cache and sort the data by word.length.
     Caching and sorting the dict data is good for TopN problem, and is good for distributing computing.
@@ -52,3 +52,11 @@
      n = 4000 , m = 1000, time: 1151
 
      The cost obeys our analysis approximately.
+
+4. Programming process
+
+     4.1 Downloading data
+     4.2 Loading dict data.
+     4.3 Loading inchi data.
+     4.4 Computing.
+     4.5 Printing the result.
