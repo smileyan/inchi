@@ -43,7 +43,16 @@ public class InChi extends Handler {
 
     // calling the method after setDict.
     public void match() {
-        handleLine(inchi_filename, singleton, true);
+        int i = 0;
+        for (String pattern: dict) {
+            for (InChiOb object: objects) {
+                if (isMatch(object.getStandard_inchi_key(), pattern)) {
+                    if (i >= num) return;
+                    i++;
+                    mr.add(new MatchResult(pattern, object));
+                }
+            }
+        }
     }
 
     public static synchronized InChi getInstance(String filename, int num) {
@@ -51,12 +60,26 @@ public class InChi extends Handler {
             singleton = new InChi();
             singleton.num = num;
             singleton.inchi_filename = filename;
+            handleLine(filename, singleton, true);
         }
         return singleton;
     }
 
+    private List<InChiOb> objects = new ArrayList<InChiOb>();
+
     @Override
     Object execute(String line) {
+        InChiOb inChi = new InChiOb(line);
+        if(!inChi.isValid()) {
+            return -1;
+        } else {
+            objects.add(inChi);
+            return 0;
+        }
+
+    }
+
+    Object execute1(String line) {
         int added = 0;
         List<MatchResult> mr_temp = new ArrayList<MatchResult>();
 

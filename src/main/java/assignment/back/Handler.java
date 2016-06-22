@@ -22,7 +22,6 @@ public abstract class Handler {
             InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
             BufferedReader br = new BufferedReader(isr);
 
-
             if (hasTitle) br.readLine();
             while ((line = br.readLine()) != null) {
                 handler.execute(line);
