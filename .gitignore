@@ -2,7 +2,9 @@
 *.log
 
 # sbt specific
+test_app.iml
 inchi.iml
+inchi.ipr
 inchi.iws
 .cache
 .history
